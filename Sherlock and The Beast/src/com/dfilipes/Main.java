@@ -11,26 +11,27 @@ public class Main {
         int t = in.nextInt();
         for(int a0 = 0; a0 < t; a0++){
             int n = in.nextInt();
-            System.out.println(getMaxDecentNumber(n));
+            printDecentNumber(n);
         }
     }
 
-    public static String getMaxDecentNumber(int n) {
+    public static void printDecentNumber(int n) {
         int fives = n;
         int threes = 0;
-        String output = "";
 
         while (fives >= 0) {
             if (fives % 3 == 0 && threes % 5 == 0) {
-                for (int i = 0; i < fives; i++) output += "5";
-                for (int i = 0; i < threes; i++) output += "3";
-                return output;
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < fives; i++) builder.append("5");
+                for (int i = 0; i < threes; i++) builder.append("3");
+                System.out.println(builder.toString());
+                return;
             }
 
             fives--;
             threes++;
         }
 
-        return "-1";
+        System.out.println("-1");
     }
 }
